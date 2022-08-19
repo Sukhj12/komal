@@ -673,9 +673,9 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
     btn.insert(0, [
-        InlineKeyboardButton(text="⭕𝙶𝚁𝙾𝚄𝙿", url="https://t.me/+7FcPo53Z7VZkZDM9"),
-        InlineKeyboardButton(text="♻️ 𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 ♻️", url="https://youtube.com/shorts/WiDmMCNCcGQ?feature=share"),
-        InlineKeyboardButton(text="𝙲𝙷𝙰𝙽𝙽𝙴𝙻⭕", url="https://t.me/+E5spjHhOEAFlMjRl")
+        InlineKeyboardButton(text="🦹𝙶𝚁𝙾𝚄𝙿", url="https://t.me/+HJuPzRiewsw5ZTI1"),
+        InlineKeyboardButton(text=" 🧛‍♂️𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 ", url="https://youtube.com/shorts/WiDmMCNCcGQ?feature=share"),
+        InlineKeyboardButton(text="🦹𝙲𝙷𝙰𝙽𝙽𝙴𝙻", url="https://t.me/+E5spjHhOEAFlMjRl")
     ])
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
