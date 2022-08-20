@@ -358,51 +358,51 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_cached_media(
+                feck = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
-                    caption=f_caption+f"\nThis File Will Be Deleted In {round(DELETE_TIMER/30)} minutes. So Forward To Your Saved Message.",
-                    protect_content=True if ident == "filep" else False 
+                    caption=f_caption+f"\nthis file will be deleted in {round(delete_timer/60)} minutes. so forward to your saved messages.",
+                    protect_content=true if ident == "filep" else false 
                 )
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
-                await asyncio.sleep(DELETE_TIMER)
+                await query.answer('check pm, i have sent files in pm', show_alert=true)
+                await asyncio.sleep(delete_timer)
                 await feck.delete()
-        except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
-        except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
-        except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+        except userisblocked:
+            await query.answer('unblock the bot mahn !', show_alert=true)
+        except peeridinvalid:
+            await query.answer(url=f"https://t.me/{temp.u_name}?start={ident}_{file_id}")
+        except exception as e:
+            await query.answer(url=f"https://t.me/{temp.u_name}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
-        if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
+        if auth_channel and not await is_subscribed(client, query):
+            await query.answer("i like your smartness, but don't be oversmart 😒", show_alert=true)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('No such file exist.')
+            return await query.answer('no such file exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
         f_caption = files.caption
-        if CUSTOM_FILE_CAPTION:
+        if custom_file_caption:
             try:
-                f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
-                                                       file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)
-            except Exception as e:
+                f_caption = custom_file_caption.format(file_name='' if title is none else title,
+                                                       file_size='' if size is none else size,
+                                                       file_caption='' if f_caption is none else f_caption)
+            except exception as e:
                 logger.exception(e)
                 f_caption = f_caption
-        if f_caption is None:
+        if f_caption is none:
             f_caption = f"{title}"
         await query.answer()
-        await client.send_cached_media(
+        feck = await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
-            caption=f_caption+f"\nThis File Will Be Deleted In {round(DELETE_TIMER/30)} minutes. So Forward To Your Saved Message.",
-            protect_content=True if ident == 'checksubp' else False
+            caption=f_caption+f"\nthis file will be deleted in {round(delete_timer/60)} minutes. so forward to your saved messages.",
+            protect_content=true if ident == 'checksubp' else false
         )
-        await asyncio.sleep(DELETE_TIMER)
+        await asyncio.sleep(delete_timer)
         await feck.delete()
     elif query.data == "pages":
         await query.answer()
