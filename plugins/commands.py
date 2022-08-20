@@ -244,7 +244,7 @@ K = await client.send_cached_media(
         caption=f_caption(
         protect_content=True if pre == 'filep' else False,
         )
-        await asyncio.sleep(6)
+        await asyncio.sleep(300)
         await k.delete()    
         
 
