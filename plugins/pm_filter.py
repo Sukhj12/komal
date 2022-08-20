@@ -365,9 +365,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
-          fek = await client.send_cached_media()
-                await asyncio.sleep(6)
-                await fek.delete()
+                await asyncio.sleep(DELETE_TIMER)
+                await feck.delete()
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
@@ -400,9 +399,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
-            caption=f_caption,
+            caption=f_caption+f"\nThis File Will Be Deleted In {round(DELETE_TIMER/5)} minutes. So Forward To Your Saved Message.",
             protect_content=True if ident == 'checksubp' else False
         )
+        await asyncio.sleep(DELETE_TIMER)
+        await feck.delete()
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
