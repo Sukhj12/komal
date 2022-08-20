@@ -245,7 +245,7 @@ async def start(client, message):
         protect_content=True if pre == 'filep' else False,
         )
 fek = await client.send_cached_media()
-      await asyncio.sleep()
+      await asyncio.sleep(6)
       await fek.delete()    
         
 
