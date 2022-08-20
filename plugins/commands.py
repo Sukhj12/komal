@@ -241,11 +241,11 @@ async def start(client, message):
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
-        caption=f_caption,
+        caption=f_caption+f"\nThis File Will Be Deleted In {round(DELETE_TIMER/60)} minutes. So Forward To Your Saved Message.",
         protect_content=True if pre == 'filep' else False,
         )
-        await asyncio.sleep(6)
-        await dm.delete()    
+        await asyncio.sleep(DELETE_TIMER)
+        await feck.delete()    
         
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
