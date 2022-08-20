@@ -364,7 +364,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False)
           fek = await client.send_cached_media()
-                await asyncio.sleep()
+                await asyncio.sleep(6)
                 await fek.delete()
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
