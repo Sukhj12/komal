@@ -244,7 +244,7 @@ async def start(client, message):
         caption=f_caption+f"\nThis File Will Be Deleted In {round(DELETE_TIMER/60)} minutes. So Forward To Your Saved Message.",
         protect_content=True if pre == 'filep' else False,
         )
-        await asyncio.sleep(DELETE_TIMER)
+        await asyncio.sleep(300)
         await feck.delete()    
         
 
