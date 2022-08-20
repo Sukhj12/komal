@@ -243,9 +243,7 @@ f = await client.send_cached_media(
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
-        )
-        await asyncio.sleep(6)
-        await f.delete()    
+        )   
         
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
